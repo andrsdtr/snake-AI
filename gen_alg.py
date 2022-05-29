@@ -12,3 +12,15 @@ def calculate_population_fitness(pop):
     
     return np.array(fitness)
 
+#Get the best individuals from the current generation and use them as the parents for the following generation
+def selecting_best_indiv(pop, fitness, num_parents):
+    parents = np.empty((num_parents, pop.shape[1]))
+    for parent_num in range(num_parents):
+        max_fitness_idx = np.where(fitness == np.max(fitness))
+        max_fitness_idx = max_fitness_idx[0][0]
+        parents[parent_num, :] = pop[max_fitness_idx, :]
+        fitness[max_fitness_idx] = -99999999
+    return parents
+
+
+
