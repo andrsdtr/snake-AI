@@ -4,8 +4,6 @@ import numpy as np
 import time
 import random
 
-#Hello from the pygame community. https://www.pygame.org/contribute.html
-
 def collision_with_apple(apple_position, score):
     apple_position = [random.randrange(1,50)*10,random.randrange(1,50)*10]
     score += 1
@@ -87,7 +85,7 @@ def play_game(snake_head, snake_position, apple_position, button_direction, appl
         display_snake(snake_position)
 
         snake_position, apple_position, score = generate_snake(snake_head, snake_position, apple_position, button_direction, score)
-        pygame.display.set_caption("Snake Game"+"  "+"SCORE: "+str(score))
+        pygame.display.set_caption("Snake Game"+" " +" " +  "CURRENT SCORE: " + str(score))
         pygame.display.update()
         prev_button_direction = button_direction
         if is_direction_blocked(snake_position, current_direction_vector) == 1:
@@ -133,7 +131,7 @@ if __name__ == "__main__":
     display = pygame.display.set_mode((display_width,display_height))
     display.fill(window_color)
     pygame.display.update()
-
+    clock=pygame.time.Clock()
     display_text = 'Your Score is: ' + str(final_score)
     display_final_score(display_text, final_score)
 
