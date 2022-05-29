@@ -1,4 +1,4 @@
-from snake_game import *
+from snake_game_manuel import *
 from neuronal_network import *
 import numpy as np
 
