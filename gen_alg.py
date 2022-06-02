@@ -1,3 +1,4 @@
+from dataclasses import replace
 from random import randint, choice
 from snake_game_ai import *
 
@@ -24,3 +25,33 @@ def selecting_best_indiv(pop, fitness, num_parents):
 
 
 
+#Create the children for the next generation (or for the best individuals which are now representing the parents)
+def crossover(parents, offspring_size):
+    offspring = np.empty(offspring_size)
+
+    for k in range(offspring_size[0]):
+        while True:
+            parents1_idx = random.randint(0, parents.shape[0] - 1)
+            parents2_idx = random.randint(0, parents.shape[0] - 1)
+            #If two parents are different from each other, then offspring gets created
+
+            if parents1_idx != parents2_idx:
+                for j in range(offspring_size[1]):
+                    if random.uniform(0, 1) <0.5:
+                        offspring[k, j] = parents[parents1_idx, j]
+                    else:
+                        offspring[k, j] = parents[parents2_idx, j]
+                break
+    return offspring
+
+
+#The offsprings which where generated from the crossover, are getting mutated to maintain variation in the population
+def mutation(offspring_crossover):
+    for idx in range(offspring_crossover.shape[0]):
+        for _ in range(25):
+            i = randint(0, offspring_crossover.shape[1]-1)
+
+        random_value = np.random.choice(np.arange(-1,1,step=0.001), size=(1), replac=False)
+        offspring_crossover[idx, i] = offspring_crossover[idx, i] + random_value
+
+        return offspring_crossover
