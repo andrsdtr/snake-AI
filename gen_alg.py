@@ -1,6 +1,6 @@
 from dataclasses import replace
 from random import randint, choice
-from snake_game_ai import *
+from snake_game_ga import *
 
 
 #Calculating the fitness value of the current game based on the given chromosome
