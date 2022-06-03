@@ -4,12 +4,12 @@ from snake_game_ga import *
 
 
 #Calculating the fitness value of the current game based on the given chromosome
-def calculate_population_fitness(pop):
+def calculate_population_fitness(pop, clock_tick):
     fitness = []
     for i in range(pop.shape[0]):
-        fit = play_game_with_GA(display,clock,pop[i])
-        print('Fitness value of the following chromosome' + str(i) + ': ', fitness)
-        fitness.append(fitness)
+        fit = play_game_with_GA(display,clock,pop[i], clock_tick)
+        print('Fitness value of the chromosome ' + str(i) + ': ', fit)
+        fitness.append(fit)
     
     return np.array(fitness)
 
@@ -51,7 +51,7 @@ def mutation(offspring_crossover):
         for _ in range(25):
             i = randint(0, offspring_crossover.shape[1]-1)
 
-        random_value = np.random.choice(np.arange(-1,1,step=0.001), size=(1), replac=False)
+        random_value = np.random.choice(np.arange(-1,1,step=0.001), size=(1), replace=False)
         offspring_crossover[idx, i] = offspring_crossover[idx, i] + random_value
 
         return offspring_crossover
