@@ -1,5 +1,5 @@
 # Snake-AI
-This is an university-project bei Can Berkil and Andreas Dichter. The goal was to train a genetic algorithm to play the classic snake game.
+This is an university-project by Can Berkil and Andreas Dichter. The goal was to train a genetic algorithm to play the classic snake game.
 
 ## Manual
 - to execute the code run 'train_ga.py'
