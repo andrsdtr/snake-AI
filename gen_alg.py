@@ -8,7 +8,7 @@ def calculate_population_fitness(pop, clock_tick):
     fitness = []
     for i in range(pop.shape[0]):
         fit = play_game_with_GA(display,clock,pop[i], clock_tick)
-        print('Fitness value of the chromosome ' + str(i) + ': ', fit)
+        print('Fitness value of chromosome', str(i) + ':', fit)
         fitness.append(fit)
     
     return np.array(fitness)

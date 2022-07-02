@@ -14,7 +14,7 @@ population_size = (population,amount_weights)
 new_population = np.random.choice(np.arange(-1,1, step=0.01),size=population_size, replace=True)
 
 
-num_generations = 100
+num_generations = 150
 
 num_parents_mating = 12
 for generation in range(num_generations+10):
@@ -22,10 +22,13 @@ for generation in range(num_generations+10):
         clock_tick = 20
     else:
         clock_tick = 50000
-    print('---------------------        GENERATION ' + str(generation)+ '  ---------------------' )
+    print('')
+    print('GENERATION', str(generation))
+    print('')
     # Measuring the fitness of each chromosome in the population.
     fitness = calculate_population_fitness(new_population, clock_tick)
-    print('---------------------Fittest chromosome in the current generation ' + str(generation) +' is having the following fitness value:  ', np.max(fitness))
+    print('')
+    print('---> chromosome with best fittness in generation', str(generation), 'has a fitness value of:', np.max(fitness))
     # Selecting the best parents from the current population, to use them for the next generation
     parents = selecting_best_indiv(new_population, fitness, num_parents_mating)
 
